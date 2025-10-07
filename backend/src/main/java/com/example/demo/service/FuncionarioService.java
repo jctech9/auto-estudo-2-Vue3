@@ -63,4 +63,10 @@ public class FuncionarioService {
         f.setAtivo(false); // soft delete
         funcionarioRepository.save(f);
     }
+    
+    public Funcionario buscarPorId(String id) {
+    return funcionarioRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado"));
+    }
+
 }

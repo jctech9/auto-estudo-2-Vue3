@@ -20,6 +20,11 @@ public class FuncionarioController {
     public ResponseEntity<List<Funcionario>> listar() {
         return ResponseEntity.ok(funcionarioService.listar());
     }
+    // GET - Buscar funcionário por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Funcionario> buscarPorId(@PathVariable String id) {
+        return ResponseEntity.ok(funcionarioService.buscarPorId(id));
+    }
 
     // POST - Criar novo funcionário
     @PostMapping
@@ -51,4 +56,6 @@ public class FuncionarioController {
         funcionarioService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
+   
 }
