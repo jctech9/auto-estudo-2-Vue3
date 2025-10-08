@@ -1,0 +1,71 @@
+
+
+//1.adicionar -----------------------------------------------------------------
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios" `
+-Method POST `
+-Headers @{ "Content-Type" = "application/json" } `
+-Body '{
+    "nome": "Alberto",
+    "matricula": "F878R",
+    "emailCorporativo": "empresa.com",
+    "telefone": "+5585999990000",
+    "setorId": "b33cd555-bc9e-410f-b479-d0f97df3b794",
+    "ativo": true
+}'
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios" `
+-Method POST `
+-Headers @{ "Content-Type" = "application/json" } `
+-Body '{
+    "nome": "Rodrigo",
+    "matricula": "9488GH",
+    "emailCorporativo": "rodrigo@empresa.com",
+    "telefone": "+5585999990000",
+    "setorId": "deefb541-714f-45bd-986b-85fbdb96015e",
+    "ativo": true
+}'
+
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios" `
+-Method POST `
+-Headers @{ "Content-Type" = "application/json" } `
+-Body '{
+    "nome": "Rafael",
+    "matricula": "94FGGG",
+    "emailCorporativo": "rafael@empresa.com",
+    "telefone": "+5585999990000",
+    "setorId": "deefb541-714f-45bd-986b-85fbdb96015e",
+    "ativo": true
+}'
+
+
+
+
+OBS:.. ID TEM QUE JÁ EXISTIR NO BANCO (a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0)
+
+2.listar -----------------------------------------------------
+---todos----
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios" -Method GET
+
+---por ID---
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios/bad9e9b3-7e9f-4a6d-a0ac-2eea673d11c3" -Method GET
+
+
+3.Atualizar Funcionário-----------------------------------------------------------
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios/71b346a7-475f-4394-a5c6-d00eae80b73c" `
+-Method PUT `
+-Headers @{ "Content-Type" = "application/json" } `
+-Body '{
+    "nome": "Joaquim dos santos",
+    "matricula": "F12345",
+    "emailCorporativo": "carlos.alberto@empresa.com",
+    "telefone": "+00000000000",
+    "setorId": "bad9e9b3-7e9f-4a6d-a0ac-2eea673d11c3",
+    "ativo": true
+}'
+
+
+4.Deletar por ID
+Invoke-RestMethod -Uri "http://localhost:8080/api/v1/funcionarios/bad9e9b3-7e9f-4a6d-a0ac-2eea673d11c3" -Method DELETE

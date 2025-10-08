@@ -1,0 +1,28 @@
+
+
+#### setor #####
+
+-----------windwos powershell----------------
+
+1.adcionar 
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/setores -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"nome":"Financeiro","descricao":"Pagamentos e contabilidade"}'
+
+2.buscar por id
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/setores/a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0 -Method GET
+
+3.listar (no proprio navegador, pode ser visto)
+http://localhost:8080/api/v1/setores
+
+4.deletar
+curl.exe -X DELETE http://localhost:8080/api/v1/setores/a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0
+
+5. atualizar (BUG solucão: todos os campos precisam ser enviados na atualização)
+
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/setores/a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0 -Method PUT -ContentType "application/json" -Body '{"nome":"RH","descricao":"Gestão de pessoas"}'
+
+SOLUÇÃO
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/setores/a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0 `
+-Method PUT -ContentType "application/json" `
+-Body '{"id":"a91ce61f-fd2d-42f3-b6a5-cd564ecf95f0","nome":"RH","descricao":"Gestao de pessoas","supervisorId":null}'
+
+

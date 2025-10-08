@@ -1,0 +1,32 @@
+
+
+1.adcionar----------------------------------------------------------
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/supervisores `
+-Method POST `
+-Headers @{"Content-Type"="application/json"} `
+-Body '{"nome":"Ana Souza","telefone":"+55 85 99999-0000","observacoes":"Supervisora geral","usuarioId":null}'
+
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/supervisores `
+-Method POST `
+-Headers @{"Content-Type"="application/json"} `
+-Body '{"nome":"Paulo","telefone":"+55 99230023","observacoes":"geral","usuarioId":null}'
+
+
+2.buscar------------------------------------------------------------
+--por id---
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/supervisores/7 -Method GET
+
+--todos os supervisores-----
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/supervisores -Method GET
+
+
+3.atualizar------------------------------------------------------------
+Invoke-WebRequest -Uri http://localhost:8080/api/v1/supervisores/7 `
+-Method PUT -ContentType "application/json" `
+-Body '{"id":"7","nome":"Bia sousa","telefone":"+55 85 98888-2222","observacoes":"Atualizado","usuarioId":null}'
+
+4.deletar-----------------------------------------------------------
+curl.exe -X DELETE http://localhost:8080/api/v1/supervisores/4
+
+
+
